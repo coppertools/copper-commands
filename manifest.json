@@ -1,0 +1,60 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"s4300"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.1"
+			],
+			"dash": [
+				"0.10.10"
+			]
+		},
+		"url": "https://github.com/coppertools/copper-commands"
+	},
+	"header": {
+		"name": "Copper Moderation",
+		"description": "§eVersion 1.0 for MC 1.20.51§r - Player ranks, moderation commands, and more! To give a player admin, give them the \"copper_admin\" tag. §bhttps://github.com/coppertools/copper-commands§r",
+		"min_engine_version": [
+			1,
+			20,
+			0
+		],
+		"uuid": "95960833-fb7b-419a-ac37-703056b9ac44",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "7dd680e2-a741-4d4b-b33e-1e692589fe41",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "b9d329b1-271b-46df-955f-b8c08d7745d6",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.8.0-beta"
+		}
+	]
+}
