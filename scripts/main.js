@@ -157,7 +157,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
                 SendStaffMessage(`§e${player.name}§r is trying to unban §e${TargetPlayerName}§r`);
                 SendCopperMessage(player, `Sending an attempt to unban §e${TargetPlayerName}§r...`);
             } else {
-                SendCopperMessage(player, `Usage: §c${config.Command_Prefix}unban [Player]§r | The username must be exact!`);
+                SendCopperMessage(player, `Usage: §c${config.Command_Prefix}unban [Full Player Username]§r | The username must be exact!`);
             }
             break;
         case "banlist":
