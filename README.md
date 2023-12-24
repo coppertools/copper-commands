@@ -1,11 +1,12 @@
 # Copper Moderation
 A simple moderation tool for vanilla Minecraft Bedrock! To give players moderation commands, you should read the FAQ or wiki.
+We are not affiliated with Mojang. If the addon breaks, you will need to download the latest version from [releases](https://github.com/coppertools/copper-commands/releases/new)
 
 ## How to install
 All you need to do is import the addon (click the mcaddon or mcpack file to import) and add to your world or realm!
 
 ## Commands
-All command usage is in (COMMANDS.md)[COMMANDS.md].
+All command usage is in [COMMANDS.md](COMMANDS.md).
 
 ## Configuration
 You may change the addons configuration inside of `scripts/config.js`. Every option states what they do, commented right next to it. You can modify it inside of your `com.mojang/behavior_packs` folder, or in the zip/mcaddon file.
