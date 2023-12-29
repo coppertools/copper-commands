@@ -152,12 +152,13 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             if (CommandArgs[1]) {
                 let TargetPlayer = FindPlayer(CommandArgs[1]);
                 let TargetPlayerName = TargetPlayer[0].name;
+                TargetPlayerName.replaceAll("-", " ");
 
-                Overworld.runCommandAsync(`scoreboard players reset ${TargetPlayerName} Copper_Bans`)
+                Overworld.runCommandAsync(`scoreboard players reset "${TargetPlayerName}" Copper_Bans`)
                 SendStaffMessage(`§e${player.name}§r is trying to unban §e${TargetPlayerName}§r`);
                 SendCopperMessage(player, `Sending an attempt to unban §e${TargetPlayerName}§r...`);
             } else {
-                SendCopperMessage(player, `Usage: §c${config.Command_Prefix}unban [Full Player Username]§r | The username must be exact!`);
+                SendCopperMessage(player, `Usage: §c${config.Command_Prefix}unban [Full Player Username]§r | The username must be exact! If the username has spaces, you will need to put a dash instead of spaces.`);
             }
             break;
         case "banlist":
@@ -180,7 +181,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
                 let RankName = CommandArgs[2];
 
                 RemoveRanksFromPlayer(player);
-                system.run(() => { TargetPlayer.addTag(`copperrank_${RankName}`); });
+                Overworld.runCommandAsync(`execute as ${TargetPlayerName} run scriptevent coppermoderation:rank ${RankName}`);
 
                 SendStaffMessage(`§e${player.name}§r gave §e${TargetPlayerName}§r the rank §e${RankName}§r`);
                 SendCopperMessage(player, `Giving §e${TargetPlayerName}§r the §e${RankName}§r rank...`);
@@ -215,8 +216,8 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             SendCopperMessage(player, `If you would like to get the addon for yourself, use ${config.Command_Prefix}download`);
             break;
         case "download":
+            SendCopperMessage(player, "MCPEDL: https://mcpedl.com/copper-moderation/");
             SendCopperMessage(player, "GitHub: https://github.com/coppertools/copper-commands");
-            SendCopperMessage(player, "If you would like an MCPEDL link, you can find it on the GitHub also.");
             break;
         // Command not found, or mistyped
         default:
@@ -249,6 +250,8 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
 // Check players
 system.runInterval(() => {
     world.getAllPlayers().forEach((player) => {
+        Overworld.runCommandAsync("scoreboard objectives add Copper_Bans dummy");
+
         // Ranks
         let PlayerHasRank = false;
         player.getTags().forEach((tag) => {
@@ -265,6 +268,11 @@ system.runInterval(() => {
 
         // Bans
         if (world.scoreboard.getObjective("Copper_Bans").getScore(player) == 1) {
+            if (player.hasTag("copper_admin") && player.isOp()) {
+                player.runCommandAsync("scoreboard players reset @s Copper_Bans");
+                SendCopperMessage(player, "Someone attempted to ban you, but you are an admin.");
+                return;
+            };
             SendCopperMessage(player, "You are banned from this server.");
             SendCopperKick(player.name, "You are banned from this server.", "an admin");
         }

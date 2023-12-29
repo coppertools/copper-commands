@@ -16,7 +16,7 @@ Unmutes the specified player.
 
 ## ;ban
 `Usage: ;ban [Player] [Reason]`
-Bans the specified player.
+Bans the specified player. The username must be exact! If the username has spaces, you will need to put a dash instead of spaces.
 
 ## ;unban
 `Usage: ;unban [Player] [Reason]`

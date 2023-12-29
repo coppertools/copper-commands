@@ -16,23 +16,23 @@
 	},
 	"header": {
 		"name": "Copper Moderation",
-		"description": "§eVersion 1.0 for MC 1.20.51§r - Player ranks, moderation commands, and more! To give a player admin, give them the \"copper_admin\" tag. §bhttps://github.com/coppertools/copper-commands§r",
+		"description": "§eVersion 1.0.2 for MC 1.20.51§r - Player ranks, moderation commands, and more! To give a player admin, give them the \"copper_admin\" tag. §bhttps://github.com/coppertools/copper-commands§r",
 		"min_engine_version": [
 			1,
 			20,
 			0
 		],
-		"uuid": "95960833-fb7b-419a-ac37-703056b9ac44",
+		"uuid": "1a6d0e4b-0d24-4899-b433-b00e60e6979e",
 		"version": [
 			1,
 			0,
-			0
+			2
 		]
 	},
 	"modules": [
 		{
 			"type": "data",
-			"uuid": "7dd680e2-a741-4d4b-b33e-1e692589fe41",
+			"uuid": "267a78d3-6385-4102-854a-1b9c8ee917d3",
 			"version": [
 				1,
 				0,
@@ -42,7 +42,7 @@
 		{
 			"type": "script",
 			"language": "javascript",
-			"uuid": "b9d329b1-271b-46df-955f-b8c08d7745d6",
+			"uuid": "19ead19e-2b05-4066-ad99-4e16aea7c60d",
 			"entry": "scripts/main.js",
 			"version": [
 				1,
